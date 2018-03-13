@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// To connect to users_test database inside MongoDB instance running on locahost
 mongoose.connect('mongodb://localhost/users_test');
 
 mongoose.connection
@@ -7,3 +8,4 @@ mongoose.connection
     .on('error', (error) => {
         console.warn('Warning', error);
     });
+
