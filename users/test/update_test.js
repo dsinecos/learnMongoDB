@@ -52,13 +52,13 @@ describe("Updating records", () => {
         );
     });
 
-    it("User can have their post count updated by 1", (done) => {
+    it("User can have their likes updated by 1", (done) => {
 
         User
-        .update({ name: 'Joe' }, { $inc: { postCount: 1 } })
+        .update({ name: 'Joe' }, { $inc: { likes: 1 } })
         .then(() => User.findOne({ name: 'Joe' }))
         .then((user) => {
-            assert(user.postCount === 1);
+            assert(user.likes === 1);
             done();
         })
 
