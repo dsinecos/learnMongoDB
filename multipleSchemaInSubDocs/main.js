@@ -7,28 +7,36 @@ module.exports = main;
 function main() {
     console.log("Inside function main");
 
-    new ClickedLinkEvent({
+    var cle = new ClickedLinkEvent({
         from: "John",
         to: "Jane"
     })
-        .save()
-        .then((data) => {
-            // console.log(data)
-        });
 
-    new PurchasedEvent({
+    var pe = new PurchasedEvent({
         product: new mongoose.Types.ObjectId
     })
-        .save()
-        .then((data) => {
-            // console.log(data)
-        });
 
-    new Event()
-        .save()
-        .then((data) => {
-            // console.log(data)
-        });
+    var e = new Event()
 
+    Promise.all([cle.save(), pe.save(), e.save()])
+    .then(function(data) {
+        ClickedLinkEvent.find({})
+        .then((data) => {
+            console.log("ClickedLinkEvents");
+            console.log(data);
+        })
+
+        PurchasedEvent.find({})
+        .then((data) => {
+            console.log("PurchasedEvent");
+            console.log(data);
+        })
+
+        Event.find({})
+        .then((data) => {
+            console.log("Events");
+            console.log(data);
+        })
+    })
 }
 
