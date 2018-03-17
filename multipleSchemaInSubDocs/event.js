@@ -38,8 +38,18 @@ var purchasedSchema = new Schema(
 
 var PurchasedEvent = Event.discriminator('Purchased', purchasedSchema);
 
+var userSchema = new Schema(
+    {
+        name: String,
+        phone: Number
+    }
+)
+
+var User = mongoose.model('UserData', userSchema);
+
 module.exports = {
     Event: Event,
     ClickedLinkEvent: ClickedLinkEvent,
-    PurchasedEvent: PurchasedEvent
+    PurchasedEvent: PurchasedEvent,
+    User: User
 }

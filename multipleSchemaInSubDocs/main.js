@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const { Event, ClickedLinkEvent, PurchasedEvent } = require('./event.js');
+const { Event, ClickedLinkEvent, PurchasedEvent, User } = require('./event.js');
 
 module.exports = main;
+
+console.log("Inside function main");
+console.log(User.collection);
+console.log(User.collection.name);
+console.log(User.collection.namespace);
 
 function main() {
     console.log("Inside function main");

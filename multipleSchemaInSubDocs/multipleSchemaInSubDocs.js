@@ -9,12 +9,12 @@ mongoose.connect('mongodb://localhost/learn_mongo');
 mongoose.connection
     .once('open', function (data) {
         console.log("Connection opened to learn_mongo database");
-        DropModels()
-        .then((data) => {
-            main();
-        })
-        .catch((err) => console.log(err));
-        // main();
+        // DropModels()
+        // .then((data) => {
+        //     main();
+        // })
+        // .catch((err) => console.log(err));
+        main();
     })
     .on('error', function (error) {
         console.warn("Warning ", error);
